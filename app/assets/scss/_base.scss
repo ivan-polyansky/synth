@@ -58,20 +58,14 @@ body {
 	@include position(relative);
 
 	&--has-fixed-head {
-		@include mobile {
 			padding-top: 52px;
-		}
-
 		@include desktop {
 			padding-top: 112px;
 		}
 	}
 
 	&--has-fixed-btn {
-		@include mobile {
 			padding-bottom: 40px;
-		}
-
 		@include desktop {
 			padding-bottom: 0;
 		}
@@ -80,9 +74,7 @@ body {
 
 .supwrap {
 	@extend %wrap;
-	@include mobile{
 		max-width: 360px;
-	}
 	@include tablet{
 		max-width: 750px;
 	}

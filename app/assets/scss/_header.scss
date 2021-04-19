@@ -2,27 +2,21 @@
 @import "mixins";
 
 .main-head {
-	@include mobile {
-		background-color: $color-light;
-		box-shadow: 0px 12px 12px transparentize($color-dark, 0.94);
-	}
+	background-color: $color-light;
+	box-shadow: 0px 12px 12px transparentize($color-dark, 0.94);
 
 	&--fixed {
-		@include mobile {
-			@include position(fixed, $t: 0, $l: 0);
-			@include sizes($w: 100%);
-			z-index: 999;
-		}
+		@include position(fixed, $t: 0, $l: 0);
+		@include sizes($w: 100%);
+		z-index: 999;
 	}
 
 	&__top {
-		@include mobile {
-			padding-top: 10px;
-			padding-bottom: 10px;
-			display: flex;
-			align-items: center;
-			justify-content: space-between;
-		}
+		padding-top: 10px;
+		padding-bottom: 10px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
 
 		@include desktop {
 			padding-top: 21px;
@@ -36,17 +30,16 @@
 	}
 
 	&__nav {
-		@include mobile {
-			@include position(absolute, $t: 100%, $l: 0);
-			@include sizes($w: 100%);
-			background-color: transparentize($color-light, 0.04);
-			padding: 20px 0;
-			display: none;
-			box-shadow: 0px 12px 12px transparentize($color-dark, 0.94);
-			border-top: 1px solid $color-bg;
-			&.open {
-				display: block;
-			}
+		@include position(absolute, $t: 100%, $l: 0);
+		@include sizes($w: 100%);
+		background-color: transparentize($color-light, 0.04);
+		padding: 20px 0;
+		display: none;
+		box-shadow: 0px 12px 12px transparentize($color-dark, 0.94);
+		border-top: 1px solid $color-bg;
+
+		&.open {
+			display: block;
 		}
 
 		@include desktop {
@@ -59,32 +52,28 @@
 	}
 
 	&__addwr {
-		@include mobile {
-			@include sizes(100%);
-			@include position(relative);
-		}
+		@include sizes(100%);
+		@include position(relative);
 	}
 
 	&__add {
-		@include mobile {
-			@include sizes(100%, 40px);
-			@include position(fixed, $b: 0, $l:0);
+		@include sizes(100%, 40px);
+		@include position(fixed, $b: 0, $l:0);
 
-			&::before,
-			&::after {
-				content: "";
-				@include position(absolute, $t: 50%, $l:50%);
-				transform: translateX(-50%) translateY(-50%);
-				background-color: $color-light;
-			}
+		&::before,
+		&::after {
+			@include position(absolute, $t: 50%, $l:50%);
+			content: "";
+			transform: translateX(-50%) translateY(-50%);
+			background-color: $color-light;
+		}
 
-			&::before {
-				@include sizes(20px, 2px);
-			}
+		&::before {
+			@include sizes(20px, 2px);
+		}
 
-			&::after {
-				@include sizes(2px, 20px);
-			}
+		&::after {
+			@include sizes(2px, 20px);
 		}
 
 		@include desktop {
@@ -98,14 +87,10 @@
 }
 
 .status-bar {
-	@include mobile {
-		display: flex;
-	}
+	display: flex;
 
 	&__icons {
-		@include mobile {
-			order: 1;
-		}
+		order: 1;
 
 		@include desktop {
 			order: 2;
@@ -113,17 +98,13 @@
 	}
 
 	&__icn {
-		@include mobile {
-			&::before {
-				@include icon-sizes(32px, 32px, 32px);
-			}
+		&::before {
+			@include icon-sizes(32px, 32px, 32px);
 		}
 	}
 
 	&__mnu {
-		@include mobile {
-			order: 2;
-		}
+		order: 2;
 
 		@include desktop {
 			order: 1;
@@ -136,9 +117,7 @@
 	@include position(relative);
 
 	&__name {
-		@include mobile {
-			display: none;
-		}
+		display: none;
 
 		@include desktop {
 			display: block;
@@ -147,18 +126,16 @@
 	}
 
 	&__logged {
-		@include mobile {
-			padding-right: 20px;
-			@include position(relative);
-			cursor: pointer;
-			display: flex;
-			align-items: center;
+		@include position(relative);
+		padding-right: 20px;
+		cursor: pointer;
+		display: flex;
+		align-items: center;
 
-			&::before {
-				@include icon-sizes(16px, 16px, 16px);
-				@include position(absolute, $t: 50%, $r: 0);
-				transform: translateY(-50%);
-			}
+		&::before {
+			@include icon-sizes(16px, 16px, 16px);
+			@include position(absolute, $t: 50%, $r: 0);
+			transform: translateY(-50%);
 		}
 
 		@include desktop {
@@ -180,19 +157,21 @@
 		@include object-fit(contain);
 		display: block;
 	}
+
+	&__dml {
+		@include desktop {
+			@include position($r: 0);
+		}
+	}
 }
 
-.icns-lst {
-	@include mobile {
-		display: flex;
-		align-items: center;
-	}
+.icns-list {
+	display: flex;
+	align-items: center;
 
 	&__itm {
 		&--hm {
-			@include mobile {
-				display: none;
-			}
+			display: none;
 
 			@include tablet {
 				display: block;
@@ -200,18 +179,14 @@
 		}
 	}
 
-	&__lnk {
-		@include mobile {
-			display: flex;
-			align-items: center;
-			text-decoration: none;
-		}
+	&__link {
+		display: flex;
+		align-items: center;
+		text-decoration: none;
 	}
 
 	&__val {
-		@include mobile {
-			@include font-styles($lh: 1);
-		}
+		@include font-styles($lh: 1);
 
 	}
 

@@ -15,12 +15,11 @@
 	}
 
 	&__link {
-		@include mobile {
 			@include position(relative);
+			@include font-styles($fz: 14px, $fw: 600);
 			display: block;
 			padding: 5px 10px;
 			text-transform: uppercase;
-			@include font-styles($fz: 14px, $fw: 600);
 			color: transparentize($color-text-main, 0.4);
 			text-decoration: none;
 			transition: all .5s;
@@ -32,26 +31,23 @@
 				background-color: transparent;
 				transition: all .5s;
 			}
-		}
 
 		@include desktop {
 			padding: 5px 0px 20px;
 
 			&::before {
 				@include position($t: auto, $l: 50%, $b: 0);
-				transform: translateX(-50%);
 				@include sizes(0, 4px);
+				transform: translateX(-50%);
 			}
 		}
 
 		&--active {
-			@include mobile {
 				color: $color-text-main;
 
 				&::before {
 					background-color: $color-ascent;
 				}
-			}
 
 			@include desktop {
 				&::before {
@@ -76,16 +72,15 @@
 }
 
 .hbg {
-	@include mobile {
 		@include sizes(22px, 16px);
-		padding: 0;
 		@include position(relative);
+		padding: 0;
 
 		&__line {
 			@include sizes($w: 100%);
+			@include position(absolute, $l: 0);
 			border-top: 1px solid;
 			border-bottom: 1px solid;
-			@include position(absolute, $l: 0);
 			transform-origin: 50%;
 			transition: transform .45s;
 
@@ -121,16 +116,13 @@
 				}
 			}
 		}
-	}
 }
 
 .drpd {
 	&__toggler {
-		@include mobile {
 			&::before {
 				@include icon-sizes(16px, 16px, 16px);
 			}
-		}
 	}
 }
 
@@ -139,17 +131,15 @@
 	&.open{
 		display: block;
 	}
-	&__lst {
-		@include mobile {
+	&__list {
+			@include position(absolute, $t: calc(100% + 16px));
+			@include sizes($miw: 100px);
 			background-color: $color-light;
 			padding-top: 20px;
 			padding-bottom: 20px;
 			border-radius: 8px;
 			box-shadow: 0px 24px 24px transparentize($color-dark, 0.88);
-			@include position(absolute, $t: calc(100% + 16px));
 			z-index: 99;
-			@include sizes($miw: 176px);
-		}
 	}
 
 	&__itm {
@@ -160,26 +150,20 @@
 		}
 	}
 
-	&__lnk {
-		@include mobile {
+	&__link {
+			@include font-styles($fw: 600);
+			white-space: nowrap;
 			display: flex;
 			align-items: center;
 			padding: 9px 24px;
 			text-decoration: none;
 			transition: all .45s;
-			@include font-styles($fw: 600);
-		}
 	}
 
 	&__icn {
+		margin-right: 3px;
 		&::before {
-			@include mobile {
 				@include icon-sizes(20px, 20px, 20px);
-			}
-		}
-
-		@include mobile {
-			margin-right: 3px;
-		}
+		}	
 	}
 }

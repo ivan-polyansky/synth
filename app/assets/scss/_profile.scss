@@ -3,86 +3,65 @@
 
 .profile {
     &__head {
-        @include mobile {
             @include position(relative);
             margin-bottom: 20px;
             padding-right: 30px;
-        }
     }
 
     &__details {
-        @include mobile {
             display: flex;
             margin-bottom: 32px;
-        }
     }
 
     &__pic {
-        @include mobile {
+            @include sizes(120px, 120px);
             overflow: hidden;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            @include sizes(120px, 120px);
             border-radius: 50%;
             flex-shrink: 0;
             margin-right: 24px;
-        }
     }
 
     &__avatar {
-        @include mobile {
             @include object-fit(contain);
-        }
     }
 
     &__name {
-        @include mobile {
             @include font-styles($secondary-font, $fz: 24px, $fw: 600, $lh: 1.08);
             margin-bottom: 8px;
-        }
     }
 
     &__uname {
-        @include mobile {
             margin-bottom: 16px;
-        }
     }
 
     &__edit {
-        @include mobile {
+            @include link-colors($color-ascent, $color-ascent, $color-ascent, $color-ascent);
             display: flex;
             align-items: center;
-            @include link-colors($color-ascent, $color-ascent, $color-ascent, $color-ascent);
-        }
     }
 
     &__edicn {
-        @include mobile {
             margin-right: 8px;
 
             &::before {
                 @include icon-sizes(20px, 20px, 20px);
             }
-        }
     }
 
     &__stat-list {
-        @include mobile {
             display: flex;
             justify-content: space-between;
-        }
     }
 
     &__drpd {
-        @include mobile {
             @include position(absolute, $r: 0);
-        }
     }
     &__dml{
-        @include mobile {
             @include position($r: 0);
-        }
+
         @include desktop {
             @include position($r: auto, $l:0);
         }
@@ -94,22 +73,16 @@
         @include font-styles($lh: 1);
 
         &--ctr {
-            @include mobile {
                 text-align: center;
-            }
         }
     }
 
     &__count {
-        @include mobile {
             @include font-styles($fz: 18px, $fw: 700);
             margin-bottom: 10px;
-        }
     }
 
     &__desc {
-        @include mobile {
             @include font-styles($fz: 16px, $fw: 400);
-        }
     }
 }
