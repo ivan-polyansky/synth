@@ -1,0 +1,108 @@
+@import "vars";
+@import "mixins";
+*, *::before, *::after {
+	box-sizing: border-box;
+}
+ul, ol{
+	padding: 0;
+	list-style: none;
+}
+body, h1, h2, h3, h4, p, ul, ol, li, figure, figcaption, blockquote, dl, dd {
+	margin: 0;
+}
+
+a:not([class]) {
+	text-decoration-skip-ink: auto;
+}
+img {
+	max-width: 100%;
+}
+article > * + * {
+	margin-top: 1em;
+}
+input, button, textarea, select {
+	font: inherit;
+}
+button{
+	border: none;
+	outline: none;
+	box-shadow: none;
+	background-color: transparent;
+	cursor: pointer;
+}
+a{
+	@include link-colors(inherit, inherit, inherit, inherit);
+}
+
+body {
+	min-height: 100vh;
+	scroll-behavior: smooth;
+	text-rendering: optimizeSpeed;
+	line-height: 1.4;
+	background-color: $body-bgc;
+	color: $color-text-main;
+	@include font-styles($regular-font, $body-fz, 400);
+	overflow-x: hidden;
+}
+.lstn{
+	list-style-type: none;
+}
+%wrap{
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: $gutter-width;
+	padding-right: $gutter-width;
+}
+
+.layout {
+	@include position(relative);
+
+	&--has-fixed-head {
+		@include mobile {
+			padding-top: 52px;
+		}
+
+		@include desktop {
+			padding-top: 112px;
+		}
+	}
+
+	&--has-fixed-btn {
+		@include mobile {
+			padding-bottom: 40px;
+		}
+
+		@include desktop {
+			padding-bottom: 0;
+		}
+	}
+}
+
+.supwrap {
+	@extend %wrap;
+	@include mobile{
+		max-width: 360px;
+	}
+	@include tablet{
+		max-width: 750px;
+	}
+	@include laptop{
+		max-width: 960px;
+	}
+	@include desktop{
+		max-width: 1200px;
+	}
+}
+.icon{
+	@each $icon in $icons-list-16 {
+		@include m-icon($icon);
+	}
+}
+.btn{
+	display: inline-block;
+	&--grad{
+		background-color: $color-gr-2;
+		background-image: linear-gradient(135deg, $color-gr-1 0%, $color-gr-2 100%);
+	}
+}
+

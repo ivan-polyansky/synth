@@ -1,0 +1,91 @@
+@import "vars";
+
+@mixin mobile {
+    @media (min-width: 320px) {
+      @content;
+    }
+  }
+  
+  @mixin tablet {
+    @media (min-width: 768px) {
+      @content;
+    }
+  }
+  
+  @mixin laptop {
+    @media (min-width: 992px) {
+      @content;
+    }
+  }
+  
+  @mixin desktop {
+    @media (min-width: 1200px) {
+      @content;
+    }
+  }
+  @mixin push--auto {
+    margin: { 
+        left: auto;
+        right: auto;
+    }
+  }
+  @mixin font-styles($ff: null, $fz: null, $fw: null, $lh: null){
+      font-family: $ff;
+      font-size: $fz;
+    font-weight: $fw;
+    line-height: $lh;
+  }
+  
+  @mixin position($p: null, $t: null, $r: null, $b: null, $l: null) {
+    position: $p;
+    top: $t;
+    right: $r;
+    bottom: $b;
+    left: $l;
+  }
+  
+  @mixin sizes($w: null, $h: null, $mih: null, $miw: null, $mah: null, $maw: null) {
+    width: $w;
+    height: $h;
+    min-height: $mih;
+    min-width: $miw;
+    max-height: $mah;
+    max-width: $maw;
+
+  }
+  @mixin icon-sizes($w: null, $h: null, $bgz: null) {
+    width: $w;
+    height: $h;
+    background-size: $bgz;
+  }
+  
+  @mixin m-icon($name ) {
+    &-#{$name}::before {
+      content: "";
+      display: block;
+      line-height: 1;
+      background-image: url("../img/icons/#{$name}.svg");
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+  }
+
+@mixin link-colors ($l: null, $v: null, $h: null, $a: null) {
+  & {
+      color: $l;
+      &:visited {
+          color: $v;
+      }
+      &:hover {
+          color: $h;
+      }
+      &:active, &:focus {
+          color: $a;
+      }
+  }
+}
+@mixin object-fit($of:none) {
+  @include sizes(100%, 100%);
+  object-fit: $of;
+  
+}

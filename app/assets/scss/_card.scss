@@ -1,0 +1,153 @@
+@import "vars";
+@import "mixins";
+
+
+.card {
+    &__cont {
+        @include mobile {
+            @include sizes($h: 100%, $mih: 280px);
+            background-color: $color-light;
+            box-shadow: 0px 24px 24px transparentize($color-dark, 0.88);
+            display: flex;
+            flex-direction: column;
+            padding: 24px;
+            border-radius: 8px;
+        }
+    }
+
+    &__shrd {
+        @include mobile {
+            @include sizes($mih: 22px);
+            @include font-styles($lh:22px);
+            display: flex;
+            align-items: center;
+        }
+    }
+
+    &__ttl {
+        @include mobile {
+            @include font-styles($secondary-font, 26px, 400, 1.2);
+        }
+
+        @include desktop {
+            @include font-styles($fz: 36px);
+        }
+    }
+
+    &__lnk {
+        @include mobile {
+            text-decoration: none;
+            @include link-colors($color-text-sec, $color-text-sec, $color-text-sec, $color-text-sec);
+        }
+    }
+
+    &__meta {
+        @include mobile {
+            margin-top: auto;
+            padding-top: 7px;
+        }
+    }
+}
+
+.card-shinf {
+    &__type {
+        @include mobile {
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            @include font-styles($fz: 16px, $fw: 600);
+        }
+    }
+
+    &__lbl {
+        @include mobile {
+            display: inline-block;
+            border-color: $color-bg;
+            border-style: solid;
+            border-width: 3px 5px 5px 4px;
+            border-radius: 6px;
+            overflow: hidden;
+            margin-left: 8px;
+            background-color: $color-bg;
+            @include font-styles($lh:1);
+        }
+    }
+
+    &__icn {
+        @include mobile {
+            &::before {
+                @include icon-sizes(16px, 16px, 16px);
+            }
+
+            margin-right: 2px;
+        }
+    }
+}
+
+.card-meta {
+    @include mobile {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__aut {
+        @include mobile {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+    }
+
+    &__pic {
+        @include mobile {
+            @include sizes(24px, 24px);
+            background-color: $color-bg2;
+            overflow: hidden;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 8px;
+        }
+    }
+
+    &__usa {
+        @include mobile {
+            @include object-fit(contain);
+            display: block;
+        }
+    }
+
+    &__nm {
+        @include mobile {
+            @include font-styles($fz:14px, $fw:600);
+        }
+    }
+
+    &__icons {
+        @include mobile {
+            @include font-styles($fz:14px, $fw:600);
+            color: $color-text-sec;
+        }
+    }
+
+    &__icn {
+        @include mobile {
+            margin-left: 16px;
+            margin-right: 8px;
+
+            &::before {
+                @include icon-sizes(16px, 16px, 16px);
+            }
+        }
+    }
+
+    &__shbt {
+        @include mobile {
+            text-decoration: none;
+            @include font-styles($fz: 18px);
+            @include link-colors($color-ascent, $color-ascent, $color-ascent, $color-ascent);
+
+        }
+    }
+}

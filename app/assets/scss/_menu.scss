@@ -1,0 +1,185 @@
+@import "vars";
+@import "mixins";
+
+.menu {
+	@include desktop {
+		display: flex;
+	}
+
+	&__itm {
+		@include desktop {
+			&:not(:first-child) {
+				margin-left: 37px;
+			}
+		}
+	}
+
+	&__link {
+		@include mobile {
+			@include position(relative);
+			display: block;
+			padding: 5px 10px;
+			text-transform: uppercase;
+			@include font-styles($fz: 14px, $fw: 600);
+			color: transparentize($color-text-main, 0.4);
+			text-decoration: none;
+			transition: all .5s;
+
+			&::before {
+				content: "";
+				@include position(absolute, $t: 0, $l: 0);
+				@include sizes(4px, 100%);
+				background-color: transparent;
+				transition: all .5s;
+			}
+		}
+
+		@include desktop {
+			padding: 5px 0px 20px;
+
+			&::before {
+				@include position($t: auto, $l: 50%, $b: 0);
+				transform: translateX(-50%);
+				@include sizes(0, 4px);
+			}
+		}
+
+		&--active {
+			@include mobile {
+				color: $color-text-main;
+
+				&::before {
+					background-color: $color-ascent;
+				}
+			}
+
+			@include desktop {
+				&::before {
+					@include sizes(100%, 4px);
+				}
+			}
+		}
+
+		&:hover {
+			@include desktop {
+				color: $color-text-main;
+
+				&::before {
+					@include sizes(100%, 4px);
+					background-color: $color-ascent;
+				}
+			}
+		}
+
+	}
+
+}
+
+.hbg {
+	@include mobile {
+		@include sizes(22px, 16px);
+		padding: 0;
+		@include position(relative);
+
+		&__line {
+			@include sizes($w: 100%);
+			border-top: 1px solid;
+			border-bottom: 1px solid;
+			@include position(absolute, $l: 0);
+			transform-origin: 50%;
+			transition: transform .45s;
+
+			&--top {
+				top: 0;
+			}
+
+			&--mid {
+				top: calc(50% - 1px);
+			}
+
+			&--bot {
+				top: calc(100% - 2px);
+			}
+		}
+
+		&.open {
+			.hbg {
+				&__line {
+					&--top {
+						transform: rotate(45deg);
+						top: calc(50% - 1px);
+					}
+
+					&--mid {
+						display: none;
+					}
+
+					&--bot {
+						transform: rotate(-45deg);
+						top: calc(50% - 1px);
+					}
+				}
+			}
+		}
+	}
+}
+
+.drpd {
+	&__toggler {
+		@include mobile {
+			&::before {
+				@include icon-sizes(16px, 16px, 16px);
+			}
+		}
+	}
+}
+
+.drpd-menu {
+	display: none;
+	&.open{
+		display: block;
+	}
+	&__lst {
+		@include mobile {
+			background-color: $color-light;
+			padding-top: 20px;
+			padding-bottom: 20px;
+			border-radius: 8px;
+			box-shadow: 0px 24px 24px transparentize($color-dark, 0.88);
+			@include position(absolute, $t: calc(100% + 16px));
+			z-index: 99;
+			@include sizes($miw: 176px);
+		}
+	}
+
+	&__itm {
+		&:hover {
+			@include desktop {
+				background-color: $color-bg;
+			}
+		}
+	}
+
+	&__lnk {
+		@include mobile {
+			display: flex;
+			align-items: center;
+			padding: 9px 24px;
+			text-decoration: none;
+			transition: all .45s;
+			@include font-styles($fw: 600);
+		}
+	}
+
+	&__icn {
+		&::before {
+			@include mobile {
+				@include icon-sizes(20px, 20px, 20px);
+			}
+		}
+
+		@include mobile {
+			margin-right: 3px;
+		}
+	}
+}

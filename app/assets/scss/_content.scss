@@ -1,0 +1,113 @@
+@import "vars";
+@import "mixins";
+
+.content {
+    &__parts {
+        @include mobile {
+            padding-top: 30px;
+        }
+        @include desktop {
+            display: flex;
+            padding-top: 72px;
+        }
+    }
+
+    &__part {
+        @include mobile {
+            margin-bottom: 32px;
+         }
+        &--l {
+            @include desktop {
+                flex: 0 0 374px;
+                padding-right: 24px;
+            }
+        }
+
+        &--r {
+            @include desktop {
+                flex: 0 0 796px;
+                padding-left: 24px;
+            }
+        }
+    }
+
+    &__swtch {
+        @include mobile {
+            padding: 0 10px 20px;
+        }
+
+        @include desktop {
+            padding: 0 10px 60px;
+        }
+    }
+}
+
+.card-list {
+    @include tablet {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    &__itm {
+        @include mobile {
+            margin-bottom: 24px;
+        }
+
+        @include tablet {
+            @include sizes($w: calc(50% - 12px));
+        }
+
+    }
+
+    &__card {
+        @include mobile {
+            @include sizes($h: 100%);
+        }
+    }
+}
+
+.switcher {
+    &__inner{
+        @include mobile {
+            display: flex;
+            align-items: center;
+            @include font-styles($fz:16px, $fw: 600);
+        }
+    }
+    &__lbl{
+        @include mobile {
+            margin: 0 20px;
+        }
+    }
+
+    &__btn {
+        @include mobile {
+        display: inline-block;
+        @include sizes(40px, 24px);
+        @include position(relative);
+        background-color: $color-ascent;
+        border: 3px solid $color-ascent;
+        border-radius: 18px;
+        cursor: pointer;
+        }
+        &::before{
+            content: "";
+            display: block;
+            @include sizes(18px, 18px);
+            background-color: $color-light;
+            border-radius: 50%;
+            @include position(absolute, $l:0, $t: 50%);
+            transform: translateY(-50%);
+        }
+    }
+    &__inp{
+        &:checked{
+            & ~ .switcher__btn{
+                &::before{
+                    @include position( $l:auto, $r: 0);
+                }
+            }
+        }
+    }
+}
